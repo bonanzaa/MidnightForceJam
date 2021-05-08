@@ -101,8 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animation: {fileID: 731063210}
-  Health: 20
+  Health: 3
   _canTakeDamage: 1
+  Hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5996304929796031391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,8 +133,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013677597, y: -0.01215744}
-  m_Size: {x: 0.79027367, y: 0.79027367}
+  m_Offset: {x: 0.045211315, y: 0.000105679035}
+  m_Size: {x: 0.65012455, y: 0.660635}
   m_Direction: 0
 --- !u!50 &715655063652413245
 Rigidbody2D:

@@ -10,7 +10,12 @@ public class PigeonHealth : MonoBehaviour
     public bool _canTakeDamage = true;
     private AudioSource squack;
 
+<<<<<<< Updated upstream
     public void Awake()
+=======
+
+    private void Start()
+>>>>>>> Stashed changes
     {
         squack = GetComponent<AudioSource>();
     }
