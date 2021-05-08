@@ -59,14 +59,18 @@ public class PigeonMovement : MonoBehaviour
         if (collision.CompareTag("Slow"))
         {
             Debug.Log("hit something");
-            _speed -= 2f;
-            new WaitForSeconds(_slowedDownDuration);
-            Debug.Log(_speed);
+            //_speed -= 2f;
+            //new WaitForSeconds(_slowedDownDuration);
+            //Debug.Log(_speed);
             _pidgeonlHealth.TakeDamage();
             //StartCoroutine(SlowedDown(_slowedDownDuration));
             //_speed += 2f;
         }
-        _speed += 2f;
+        else if (collision.CompareTag("Enemy"))
+        {
+            _pidgeonlHealth.TakeDamage();
+        }
+        //_speed += 2f;
     }
     //private IEnumerator SlowedDown(float time)
     //{
