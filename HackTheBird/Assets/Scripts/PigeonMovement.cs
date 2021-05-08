@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using SpriteGlow;
+
 
 public class PigeonMovement : MonoBehaviour
 {
@@ -13,10 +15,19 @@ public class PigeonMovement : MonoBehaviour
     private PigeonHealth _pidgeonlHealth;
     private CapsuleCollider2D _collider;
 
+    public SpriteGlowEffect glow;
+    public Color _oldColor;
+    public float _oldBrightness;
+    public float _oldFireRate;
+
     private void Start()
     {
         _pidgeonlHealth = GetComponent<PigeonHealth>();
         _collider = GetComponent<CapsuleCollider2D>();
+
+        glow = GetComponent<SpriteGlowEffect>();
+        _oldColor = glow.GlowColor;
+        _oldBrightness = glow.GlowBrightness;
     }
     private void Update()
     {
@@ -62,9 +73,14 @@ public class PigeonMovement : MonoBehaviour
         if (collision.CompareTag("PowerUp"))
         {
             Destroy(collision.gameObject);
-            StartCoroutine(Invincibility(1f));
+            StartCoroutine(Invincibility(3f));
+
+            //buff
+            _pidgeonlHealth.BuffVisualActive(glow);
+            _pidgeonlHealth.StartCoroutine(_pidgeonlHealth.BuffTimerForFireRate(_oldFireRate, _oldColor, _oldBrightness, glow));
+
         }
-        else if (collision.CompareTag("Enemy") && _collider.enabled)
+        else if (collision.CompareTag("Enemy") && _pidgeonlHealth._canTakeDamage)
         {
             Destroy(collision.gameObject);
             _pidgeonlHealth.TakeDamage();
@@ -75,7 +91,7 @@ public class PigeonMovement : MonoBehaviour
         }
         else if (collision.CompareTag("EndZone"))
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(3);
         }
     }
     private IEnumerator Invincibility(float duration)

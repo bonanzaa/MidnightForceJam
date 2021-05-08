@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 715655063652413245}
   - component: {fileID: 731063210}
   - component: {fileID: 8602862540282010027}
+  - component: {fileID: 594260720}
   m_Layer: 0
   m_Name: BirdTheRealOneTho
   m_TagString: Untagged
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,8 +102,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animation: {fileID: 731063210}
-  Health: 20
+  Health: 3
   _canTakeDamage: 1
+  HealthList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5996304929796031391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 8
+  glow: {fileID: 0}
+  _oldColor: {r: 0, g: 0, b: 0, a: 0}
+  _oldBrightness: 0
+  _oldFireRate: 0
 --- !u!70 &-2900057297041566427
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -129,8 +138,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013677597, y: -0.01215744}
-  m_Size: {x: 0.79027367, y: 0.79027367}
+  m_Offset: {x: 0.045211315, y: 0.000105679035}
+  m_Size: {x: 0.65012455, y: 0.660635}
   m_Direction: 0
 --- !u!50 &715655063652413245
 Rigidbody2D:
@@ -268,3 +277,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &594260720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996304929796031388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 1}
+  glowBrightness: 1.48
+  outlineWidth: 1
+  alphaThreshold: 0.01
+  drawOutside: 0
+  enableInstancing: 0
