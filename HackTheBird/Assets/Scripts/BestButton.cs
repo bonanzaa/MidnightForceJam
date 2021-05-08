@@ -13,5 +13,15 @@ namespace Assets.Scripts
         {            
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+
+        public void GuitGame()
+        {
+            Application.Quit();
+        }
+
+        public void NewRun()
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }
