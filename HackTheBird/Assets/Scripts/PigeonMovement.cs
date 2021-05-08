@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PigeonMovement : MonoBehaviour
 {
@@ -71,6 +72,10 @@ public class PigeonMovement : MonoBehaviour
         else if (collision.CompareTag("Towers") && _pidgeonlHealth._canTakeDamage)
         {
             _pidgeonlHealth.TakeDamage();
+        }
+        else if (collision.CompareTag("EndZone"))
+        {
+            SceneManager.LoadScene(4);
         }
     }
     private IEnumerator Invincibility(float duration)
