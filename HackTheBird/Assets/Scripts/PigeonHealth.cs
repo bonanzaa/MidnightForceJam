@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PigeonHealth : MonoBehaviour
 {
+    public Animator Animation;
     public int Health = 3;
+    public bool _canTakeDamage = true;
 
+    private void Start()
+    {
+    }
     void Update()
     {
         if (Health <= 0)
@@ -16,7 +21,23 @@ public class PigeonHealth : MonoBehaviour
     }
     public void TakeDamage()
     {
-        Health--;
-        Debug.Log(Health);
+        if (_canTakeDamage)
+        {
+            Health--;
+            Debug.Log(Health);
+            Animation.SetBool("Hit", true); // ADD NEW ANIMATION AND ANIMATOR, TRANSITION FOR FLASHING HIT = TRUE
+            _canTakeDamage = false;
+            StartCoroutine(Flashing(1f));
+        }
+    }
+    public IEnumerator Flashing(float duration)
+    {
+        while (duration > 0)
+        {
+            yield return null;
+            duration -= Time.deltaTime;
+        }
+        Animation.SetBool("Hit", false); //TRANSITION FOR FLASHING HIT = FALSE
+        _canTakeDamage = true;
     }
 }
