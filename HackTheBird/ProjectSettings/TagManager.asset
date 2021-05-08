@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Slow
   - Enemy
+  - PowerUp
+  - Towers
   layers:
   - Default
   - TransparentFX
