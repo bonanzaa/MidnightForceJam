@@ -8,9 +8,11 @@ public class PigeonHealth : MonoBehaviour
     public Animator Animation;
     public int Health = 3;
     public bool _canTakeDamage = true;
+    private AudioSource squack;
 
-    private void Start()
+    public void Awake()
     {
+        squack = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -23,6 +25,7 @@ public class PigeonHealth : MonoBehaviour
     {
         if (_canTakeDamage)
         {
+            squack.Play();
             Health--;
             Debug.Log(Health);
             Animation.SetBool("Hit", true); // ADD NEW ANIMATION AND ANIMATOR, TRANSITION FOR FLASHING HIT = TRUE
