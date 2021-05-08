@@ -279,6 +279,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6262002547679625109, guid: c877864a98caa2944a0923b545d874fa, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6262002548017926300, guid: c877864a98caa2944a0923b545d874fa, type: 3}
       propertyPath: m_SizeDelta.x
       value: 920.7505

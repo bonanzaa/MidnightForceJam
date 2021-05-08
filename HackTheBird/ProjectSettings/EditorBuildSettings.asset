@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BirdGameplay.unity
     guid: dbdbceb786fe6b747b9f3aafce5ef6ae
+  - enabled: 1
+    path: Assets/Scenes/WinScreen!.unity
+    guid: 373511475a6558e42912ccf7f1d1bce9
   m_configObjects: {}
