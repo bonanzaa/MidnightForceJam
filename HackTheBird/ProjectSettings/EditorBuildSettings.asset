@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ExpositionDump.unity
     guid: 4b09e69707a6e70419f4a15053421c6c
   - enabled: 1
-    path: Assets/Scenes/BirdGameplay.unity
-    guid: dbdbceb786fe6b747b9f3aafce5ef6ae
+    path: Assets/Scenes/ALevel.unity
+    guid: 96a65b1187a4274429b59b52217d0024
   - enabled: 1
     path: Assets/Scenes/WinScreen!.unity
     guid: 373511475a6558e42912ccf7f1d1bce9
