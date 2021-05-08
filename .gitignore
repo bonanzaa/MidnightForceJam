@@ -58,3 +58,15 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+HackTheBird/Library/Artifacts/00/
+
+HackTheBird/Library/
+
+HackTheBird/Temp/
+
+HackTheBird/Logs/
+
+HackTheBird/UserSettings/
+
+*.meta
