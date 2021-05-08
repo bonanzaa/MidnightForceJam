@@ -8,12 +8,14 @@ public class PigeonMovement : MonoBehaviour
     private float _speed;
 
     private Vector2 _input;
-    private float _slowedDownDuration = 5f;
+
     private PigeonHealth _pidgeonlHealth;
+    private CapsuleCollider2D _collider;
 
     private void Start()
     {
         _pidgeonlHealth = GetComponent<PigeonHealth>();
+        _collider = GetComponent<CapsuleCollider2D>();
     }
     private void Update()
     {
@@ -56,28 +58,30 @@ public class PigeonMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Slow"))
+        if (collision.CompareTag("PowerUp"))
         {
-            Debug.Log("hit something");
-            //_speed -= 2f;
-            //new WaitForSeconds(_slowedDownDuration);
-            //Debug.Log(_speed);
-            _pidgeonlHealth.TakeDamage();
-            //StartCoroutine(SlowedDown(_slowedDownDuration));
-            //_speed += 2f;
+            Destroy(collision.gameObject);
+            StartCoroutine(Invincibility(1f));
         }
-        else if (collision.CompareTag("Enemy"))
+        else if (collision.CompareTag("Enemy") && _collider.enabled)
         {
+            Destroy(collision.gameObject);
             _pidgeonlHealth.TakeDamage();
         }
-        //_speed += 2f;
+        else if (collision.CompareTag("Towers") && _pidgeonlHealth._canTakeDamage)
+        {
+            _pidgeonlHealth.TakeDamage();
+        }
     }
-    //private IEnumerator SlowedDown(float time)
-    //{
-    //    while(true)
-    //    {
-    //        _speed -= 2f;
-    //        yield return new WaitForSeconds(time);
-    //    }
-    //}
+    private IEnumerator Invincibility(float duration)
+    {
+        while (duration > 0)
+        {
+            yield return null;
+            _pidgeonlHealth._canTakeDamage = false;
+            duration -= Time.deltaTime;
+            //Glow for shield or whatever the fucking fuck I hate Maduro
+        }
+        _pidgeonlHealth._canTakeDamage = true;
+    }
 }
